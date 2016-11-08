@@ -25,6 +25,9 @@ public class danio : MonoBehaviour
     private bool room4;
     private bool room7;
     private bool room0;
+    public AudioSource sfxSource;
+    public AudioClip winSound;
+    public AudioClip button;
 
     void Start()
     {
@@ -44,6 +47,11 @@ public class danio : MonoBehaviour
             text += "\n Press spacebar to DIVE INTO this excellent adventure";
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = "townhall";
             }
         }
@@ -76,17 +84,13 @@ public class danio : MonoBehaviour
                 }
                 text += "You must collect the AWESOME ANGUS from the northern swamps!!!1\n";
             }
-            if (hasAngus == true)
-            {
-                if (hasBananas == true)
+            else if (hasAngus == true && hasBananas == true)
                 {
                     text = "ALTHOUGH YOU HAVE ATTAINED these FLAVOURFUL treats,, the townspeople do not know how to make delicious FLAVOUR worth GUY FIERIS' TIME!!!\n";
                     text += "You must also give them the gift of... WISDOM!!! ONLY THE WISEST PEOPLE CAN TRULY ATTAIN TRUE FLAVOUR!!!\n";
                     text += "Go, onwards, to the library of WISDOM to truly BECOME WISE!!!!!";
                     room_up = "library";
                 }
-            }
-
         }
 
         else if (currentRoom == "courts")
@@ -124,6 +128,11 @@ public class danio : MonoBehaviour
 
         else if (currentRoom == "courtsAnime")
         {
+            sfxSource.clip = winSound;
+            if (!sfxSource.isPlaying)
+            {
+                sfxSource.Play();
+            }
             room_left = "townhall";
             text = "succes! you inflict gr8 pain because ANIME and AGONY are both five-letter words that start with A!";
             text += "press left to return to the TOWN HALL OF FLAVOUR TOWN";
@@ -149,7 +158,9 @@ public class danio : MonoBehaviour
         {
             if (hasAngus == true)
             {
-                text = "";
+                text = "The charred remains wither away in the murky swamp.";
+                room_left = "cave";
+                room_right = "townhall";                
             }
             else
             {
@@ -184,22 +195,47 @@ public class danio : MonoBehaviour
                 text += "\n Enter which door? Press on keyboard.";
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
                     currentRoom = "room1";
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
                     currentRoom = "room3";
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
                     currentRoom = "room4";
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha7))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
                     currentRoom = "room7";
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha0))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
                     currentRoom = "room0";
                 }             
             }
@@ -209,10 +245,21 @@ public class danio : MonoBehaviour
         {
             if (room4 == true && room7 == true)
             {
+                sfxSource.clip = winSound;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 cavePuzzle = true;
                 text = "Nice!!!!! When you add those two numbers up you get the highest sum! Press space to continue!";
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
+                    buttonsPressed = 0;
                     currentRoom = "cave";
                 }
             }
@@ -227,6 +274,11 @@ public class danio : MonoBehaviour
                 buttonsPressed = 0;
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    sfxSource.clip = button;
+                    if (!sfxSource.isPlaying)
+                    {
+                        sfxSource.Play();
+                    }
                     currentRoom = "cave";
                 }
             }
@@ -243,6 +295,11 @@ public class danio : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = "cave";
             }
         }
@@ -252,12 +309,22 @@ public class danio : MonoBehaviour
             text = "Room 3 \n Press button? (Y/N?)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 room3 = true;
                 buttonsPressed++;
                 currentRoom = "cave";
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = "cave";
             }
         }
@@ -267,12 +334,22 @@ public class danio : MonoBehaviour
             text = "Room 0 \n Press button? (Y/N?)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 room0 = true;
                 buttonsPressed++;
                 currentRoom = "cave";
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = "cave";
             }
         }
@@ -282,12 +359,22 @@ public class danio : MonoBehaviour
             text = "Room 4 \n Press button? (Y/N?)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 room4 = true;
                 buttonsPressed++;
                 currentRoom = "cave";
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = "cave";
             }
         }
@@ -297,12 +384,22 @@ public class danio : MonoBehaviour
             text = "Room 7 \n Press button? (Y/N?)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 room7 = true;
                 buttonsPressed++;
                 currentRoom = "cave";
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = "cave";
             }
         }
@@ -312,13 +409,28 @@ public class danio : MonoBehaviour
             text = "Now that the path has been laid before you, GUY FIERI, you must fullfill your destiny by making FLAVOURTOWN GREAT AGAIN! Do you have WHAT IT TAKES TO DIVE INTO THE FLAVOUR?????? (YOU'RE SUPPOSED TO HIT THE Y KEY HERE)";
             if (Input.GetKeyDown(KeyCode.Y))
             {
-                text = "Do you believe THAT YOU ARE WORTHY OF BRINGING FLAVOUR BACK???? (Please PRESS Y OMGGGG)";
-                if (Input.GetKeyDown(KeyCode.Y))
-                {
-                    text = "Good because I'm so done with writing this game like wtf it's way too late for this";
-                    text += "\n THE END";
-                }
+                currentRoom = "library2";
             }
+        }
+
+        else if (currentRoom =="library 2")
+        {
+            text = "Do you believe THAT YOU ARE WORTHY OF BRINGING FLAVOUR BACK???? (Please PRESS Y OMGGGG)";
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                currentRoom = "library3";
+            }
+        }
+
+        else if (currentRoom == "library3")
+        {
+            sfxSource.clip = winSound;
+            if (!sfxSource.isPlaying)
+            {
+                sfxSource.Play();
+            }
+            text = "Good because I'm so done with writing this game like wtf it's way too late for this";
+            text += "\n THE END";
         }
 
         text += "\n\n";
@@ -328,6 +440,11 @@ public class danio : MonoBehaviour
             text += "Press Up to go to the " + room_up + "\n";
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = room_up;
                 visits++;
             }
@@ -337,6 +454,11 @@ public class danio : MonoBehaviour
             text += "Press Down to go to the " + room_down + "\n";
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = room_down;
                 visits++;
             }
@@ -347,6 +469,11 @@ public class danio : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = room_left;
                 visits++;
             }
@@ -356,6 +483,11 @@ public class danio : MonoBehaviour
             text += "Press Right to go to the " + room_right + "\n";
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                sfxSource.clip = button;
+                if (!sfxSource.isPlaying)
+                {
+                    sfxSource.Play();
+                }
                 currentRoom = room_right;
                 visits++;
             }

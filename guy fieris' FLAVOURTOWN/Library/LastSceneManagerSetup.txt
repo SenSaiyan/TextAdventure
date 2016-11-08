@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/Daniel/Downloads/Intro_GameDev_IDM_Fall2016-master/Week9/Assets/Scenes/TextAdventure_class.unity
+- path: Assets/uhhhh.unity
   isLoaded: 1
   isActive: 1
